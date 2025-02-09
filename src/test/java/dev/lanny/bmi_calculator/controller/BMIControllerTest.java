@@ -1,5 +1,7 @@
 package dev.lanny.bmi_calculator.controller;
 
+import dev.lanny.bmi_calculator.controller.BMIController;
+
 
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -22,17 +24,17 @@ void testCalculatedBMI_ValidValues(){
     assertThat(bmi, closeTo(22.86,0.01));
     }
 
- @Test
- @DisplayName("Obtener categoria de IMC - Sobrepeso")   
- void testGetBMICategory_Overweight(){
-    String category = controller.getBMICategory(27);
-    assertThat(category, is("Sobrepeso"));
- }
+    @Test
+    @DisplayName("Obtener categoría de IMC - Sobrepeso")
+    void testGetBMICategory_Overweight() {
+        String category = controller.getBMICategory(85.0, 1.75); 
+        assertThat(category, is("Sobrepeso"));
+    }
 
- @Test
- @DisplayName("Obtener categoria de IMC -Obesidad tipo III")
- void testGetBMICategory_ObesityClassIII(){
-    String category = controller.getBMICategory(42);
-    assertThat(category, is("Obesidad tipo III"));
- }
+    @Test
+    @DisplayName("Obtener categoría de IMC - Obesidad tipo III")
+    void testGetBMICategory_ObesityClassIII() {
+        String category = controller.getBMICategory(120.0, 1.60); 
+        assertThat(category, is("Obesidad tipo III"));
+    }
 }
