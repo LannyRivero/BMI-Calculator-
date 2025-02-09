@@ -17,27 +17,26 @@ public class BMIViewTest {
     @Test
     @DisplayName("Prueba de flujo completo con formato mejorado")
     void testBMIViewWithImprovedFormat() {
-        // Simular entrada del usuario
-        String simulatedInput = "70\n1.75\nn\n"; // Peso: 70kg, Altura: 1.75m, y salir
+        
+        String simulatedInput = "70\n1.75\nn\n";
         ByteArrayInputStream input = new ByteArrayInputStream(simulatedInput.getBytes());
         System.setIn(input);
 
-        // Capturar la salida
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
 
         try {
-            // Configurar el controlador y la vista
+
             BMIController controller = new BMIController(new BMICalculator());
             BMIView view = new BMIView(controller);
 
-            // Ejecutar el programa
+
             view.start();
 
-            // Obtener la salida de la consola
+
             String consoleOutput = output.toString();
 
-            // Verificar las secciones visuales y los resultados
+
             assertThat(consoleOutput, containsString("================================="));
             assertThat(consoleOutput, containsString("       CALCULADORA DE IMC       "));
             assertThat(consoleOutput, containsString("Ingrese su peso (kg):"));
@@ -50,7 +49,7 @@ public class BMIViewTest {
             assertThat(consoleOutput, containsString("¡Gracias por usar la Calculadora de IMC!"));
 
         } finally {
-            // Restaurar los flujos originales
+
             System.setOut(System.out);
             System.setIn(System.in);
         }
