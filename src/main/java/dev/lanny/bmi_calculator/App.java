@@ -1,17 +1,20 @@
 package dev.lanny.bmi_calculator;
 
-/**
- * Hello world!
- */
+import dev.lanny.bmi_calculator.controller.BMIController;
+import dev.lanny.bmi_calculator.model.BMICalculator;
+import dev.lanny.bmi_calculator.view.BMIView;
+
 public final class App {
+    
     private App() {
     }
 
-    /**
-     * Says hello to the world.
-     * @param args The arguments of the program.
-     */
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
-    }
+    public static void main(String[] args) {  
+        
+            BMICalculator calculator = new BMICalculator();   
+            BMIController controller = new BMIController(calculator);   
+            BMIView view = new BMIView(controller);
+
+            view.start();
+        }
 }
