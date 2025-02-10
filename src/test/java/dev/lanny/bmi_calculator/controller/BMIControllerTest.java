@@ -1,9 +1,5 @@
 package dev.lanny.bmi_calculator.controller;
 
-import dev.lanny.bmi_calculator.controller.BMIController;
-
-
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.closeTo;
 import static org.hamcrest.Matchers.is;
